@@ -10617,7 +10617,10 @@ Manage OneView Volume resources.
 
 - name: Create a Volume with a specified Storage Pool
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: present
     data:
       name: 'Volume with Storage Pool'
@@ -10631,7 +10634,10 @@ Manage OneView Volume resources.
 
 - name: Create a volume with a specified Snapshot Pool
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: present
     data:
       name: 'Volume with Snapshot Pool'
@@ -10647,7 +10653,10 @@ Manage OneView Volume resources.
 
 - name: Add a volume for management by the appliance using the WWN of the volume
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: present
     data:
       type: AddStorageVolumeV2
@@ -10661,7 +10670,10 @@ Manage OneView Volume resources.
 
 - name: Update the name of the volume to 'Volume with Storage Pool - Renamed' and shareable to false
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: present
     data:
       name: 'Volume with Storage Pool'
@@ -10671,14 +10683,20 @@ Manage OneView Volume resources.
 
 - name: Remove extra presentations from the specified volume on the storage system
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: repaired
     data:
       name: 'Volume with Storage Pool - Renamed'
 
 - name: Create a new snapshot for the specified volume
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: snapshot_created
     data:
       name: 'Volume with Snapshot Pool'
@@ -10689,7 +10707,10 @@ Manage OneView Volume resources.
 
 - name: Delete the snapshot
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: snapshot_deleted
     data:
       name: 'Volume with Snapshot Pool'
@@ -10698,21 +10719,30 @@ Manage OneView Volume resources.
 
 - name: Delete the volume previously created with a Storage Pool
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: absent
     data:
       name: 'Volume with Storage Pool - Renamed'
 
 - name: Delete the volume previously created with a Snapshot Pool
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: absent
     data:
       name: 'Volume with Snapshot Pool - Renamed'
 
 - name: Delete the volume previously added using the WWN of the volume
   oneview_volume:
-    config: '{{ config_path }}'
+    hostname: 172.16.101.48
+    username: administrator
+    password: my_password
+    api_version: 500
     state: absent
     data:
       name: 'Volume added with a specific WWN'
@@ -10771,7 +10801,7 @@ Retrieve facts about the OneView Volumes.
     hostname: 172.16.101.48
     username: administrator
     password: my_password
-    api_version: 500
+    api_version: 600
 - debug: var=storage_volumes
 
 - name: Gather paginated, filtered and sorted facts about Volumes
@@ -10779,7 +10809,7 @@ Retrieve facts about the OneView Volumes.
     hostname: 172.16.101.48
     username: administrator
     password: my_password
-    api_version: 500
+    api_version: 600
     params:
       start: 0
       count: 2
@@ -10793,7 +10823,7 @@ Retrieve facts about the OneView Volumes.
     hostname: 172.16.101.48
     username: administrator
     password: my_password
-    api_version: 500
+    api_version: 600
     options:
         - attachableVolumes        # optional
         - extraManagedVolumePaths  # optional
@@ -10807,7 +10837,7 @@ Retrieve facts about the OneView Volumes.
     hostname: 172.16.101.48
     username: administrator
     password: my_password
-    api_version: 500
+    api_version: 600
     name: "{{ volume_name }}"
     options:
         - snapshots  # optional
@@ -10820,7 +10850,7 @@ Retrieve facts about the OneView Volumes.
     hostname: 172.16.101.48
     username: administrator
     password: my_password
-    api_version: 500
+    api_version: 600
     name: "{{ volume_name }}"
     options:
        - snapshots:  # optional
